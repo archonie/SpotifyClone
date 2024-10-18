@@ -60,10 +60,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func createTableHeader(with string: String?) {
-        guard let urlString = string, let url = URL(string: urlString) else { return }
-        
-        print(url.absoluteString)
-        
+        guard let urlString = string, let url = URL(string: urlString) else { return }        
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.width, height: view.width/1.5))
         
         let imageSize: CGFloat = headerView.height/2
