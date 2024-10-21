@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -79,6 +79,10 @@
 		71CEA67A2CC19CF400B2DD52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B192410D94B513EADF9FF21E /* Pods-SpotifyClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyClone.debug.xcconfig"; path = "Target Support Files/Pods-SpotifyClone/Pods-SpotifyClone.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		716C20D82CC6ED2500A7BF7A /* Browse */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Browse; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		713A85C12CC0358300FFBF22 /* Frameworks */ = {
@@ -194,6 +198,7 @@
 		71CEA6792CC19CF400B2DD52 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				716C20D82CC6ED2500A7BF7A /* Browse */,
 				71CEA6782CC19CF400B2DD52 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
@@ -246,6 +251,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				716C20D82CC6ED2500A7BF7A /* Browse */,
 			);
 			name = SpotifyClone;
 			productName = SpotifyClone;
