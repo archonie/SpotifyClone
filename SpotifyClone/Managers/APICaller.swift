@@ -68,7 +68,7 @@ final class APICaller {
     
     public func getRecommendations(genres: Set<String>, completion: @escaping (Result<RecommendationsResponse, Error>)-> Void) {
         let seeds = genres.joined(separator: ",")
-        createRequest(with: URL(string: Constants.baseURL + "/recommendations?limit=2&seed_genres=\(seeds)"), type: .GET) { request in
+        createRequest(with: URL(string: Constants.baseURL + "/recommendations?limit=10&seed_genres=\(seeds)"), type: .GET) { request in
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data = data, error == nil else {
                     completion(.failure(APIError.failedToGetData))
@@ -112,7 +112,7 @@ final class APICaller {
         }
 
     public func getFeaturedPlaylists(completion: @escaping ((Result<FeaturedPlaylistsResponse, Error>) -> Void)) {
-        createRequest(with: URL(string: Constants.baseURL + "/browse/featured-playlists?limit=40"), type: .GET) { request in
+        createRequest(with: URL(string: Constants.baseURL + "/browse/featured-playlists?limit=20"), type: .GET) { request in
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data = data, error == nil else {
                     completion(.failure(APIError.failedToGetData))

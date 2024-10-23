@@ -9,8 +9,8 @@ import UIKit
 
 enum BrowseSectionType {
     case newReleases(viewModels: [NewReleasesCellViewModel])
-    case featuredPlaylists(viewModels: [NewReleasesCellViewModel])
-    case recommendedTracks(viewModels: [NewReleasesCellViewModel])
+    case featuredPlaylists(viewModels: [FeaturedPlaylistCellViewModel])
+    case recommendedTracks(viewModels: [RecommendedTrackCellViewModel])
 }
 
 class HomeViewController: UIViewController {
@@ -74,7 +74,6 @@ class HomeViewController: UIViewController {
         var featuredPlaylist: FeaturedPlaylistsResponse?
         var recommendedTracks: RecommendationsResponse?
         // Featured Playlists, Recommended Tracks, New Releases
-        print("start fetching data")
         APICaller.shared.getNewReleases {result in
             defer {
                 group.leave()
@@ -128,10 +127,8 @@ class HomeViewController: UIViewController {
             guard let newAlbums = newReleases?.albums.items,
                   let playlists = featuredPlaylist?.playlists.items,
                   let tracks = recommendedTracks?.tracks else {
-                fatalError("Models are nil")
                 return
             }
-            print("Configuring ViewModels")
             self.configureModels(
                 newAlbums: newAlbums,
                 playlists: playlists,
@@ -152,8 +149,20 @@ class HomeViewController: UIViewController {
                 artistName: $0.artists.first?.name ?? "-"
             )
         })))
-        sections.append(.featuredPlaylists(viewModels: []))
-        sections.append(.recommendedTracks(viewModels: []))
+        sections.append(.featuredPlaylists(viewModels: playlists.compactMap({
+            return FeaturedPlaylistCellViewModel(
+                name: $0.name,
+                artworkURL: URL(string: $0.images.first?.url ?? ""),
+                creatorName: $0.owner.display_name
+            )
+        })))
+        sections.append(.recommendedTracks(viewModels: recommendations.compactMap({
+            return RecommendedTrackCellViewModel(
+                name: $0.name,
+                artist: $0.artists.first?.name ?? "-",
+                artworkURL: URL(string: $0.album.images.first?.url ?? "")
+            )
+        })))
         collectionView.reloadData()
     }
     
@@ -199,8 +208,8 @@ class HomeViewController: UIViewController {
             
             let verticalGroup = NSCollectionLayoutGroup.vertical(
                 layoutSize: NSCollectionLayoutSize(
-                    widthDimension:  .absolute(150),
-                    heightDimension: .absolute(300)
+                    widthDimension:  .absolute(180),
+                    heightDimension: .absolute(480)
                 ),
                 repeatingSubitem: item,
                 count: 2
@@ -282,13 +291,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeaturedPlaylistCollectionViewCell.identifier, for: indexPath) as? FeaturedPlaylistCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            cell.backgroundColor = .blue
+            let viewModel = viewModels[indexPath.row]
+            cell.configureWith(viewModel: viewModel)
             return cell
         case .recommendedTracks(let viewModels):
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RecommendedTrackCollectionViewCell.identifier, for: indexPath) as? RecommendedTrackCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            cell.backgroundColor = .green
+            let viewModel = viewModels[indexPath.row]
+            cell.configureWith(viewModel: viewModel)
             return cell
         }
     }
