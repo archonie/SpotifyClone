@@ -27,9 +27,9 @@ class PlaylistViewController: UIViewController {
         
         APICaller.shared.getPlaylistDetails(for: playlist) { result in
             switch result {
-            case .success(let success):
+            case .success(let model):
                 break
-            case .failure(let failure):
+            case .failure(let error):
                 break
             }
         }
