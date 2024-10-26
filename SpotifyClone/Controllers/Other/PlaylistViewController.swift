@@ -11,6 +11,13 @@ class PlaylistViewController: UIViewController {
 
     private let playlist: Playlist
     
+    private var collectionView: UICollectionView  = UICollectionView(
+        frame: .zero,
+        collectionViewLayout: UICollectionViewCompositionalLayout(sectionProvider: { sectionIndex, _ -> NSCollectionLayoutSection in
+            return PlaylistViewController.createSectionLayout(section: sectionIndex)
+        })
+    )
+    
     init(playlist: Playlist){
         self.playlist = playlist
         super.init(nibName: nil, bundle: nil)
@@ -36,4 +43,25 @@ class PlaylistViewController: UIViewController {
     }
     
 
+    private static func createSectionLayout(section: Int) -> NSCollectionLayoutSection {
+        let item = NSCollectionLayoutItem(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .fractionalHeight(1.0/3)
+            )
+        )
+        
+        item.contentInsets = NSDirectionalEdgeInsets(top: 2, leading: 2, bottom: 2, trailing: 2)
+        let verticalGroup = NSCollectionLayoutGroup.vertical(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(0.9),
+                heightDimension: .absolute(390)
+            ),
+            repeatingSubitem: item,
+            count: 1
+        )
+        let section = NSCollectionLayoutSection(group: verticalGroup)
+        return section
+    }
+    
 }
