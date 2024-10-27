@@ -11,6 +11,12 @@ class PlaylistViewController: UIViewController {
 
     private let playlist: Playlist
     
+    private var playlistNameLabel: UILabel = {
+        let label = UILabel()
+        
+        return label
+    }()
+    
     private var collectionView: UICollectionView  = UICollectionView(
         frame: .zero,
         collectionViewLayout: UICollectionViewCompositionalLayout(sectionProvider: { sectionIndex, _ -> NSCollectionLayoutSection in
