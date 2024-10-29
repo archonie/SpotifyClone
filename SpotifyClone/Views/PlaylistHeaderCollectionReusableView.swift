@@ -88,7 +88,7 @@ class PlaylistHeaderCollectionReusableView: UICollectionReusableView {
         nameLabel.frame = CGRect(x: 10, y: imageView.bottom, width: width-20, height: 44)
         descriptionLabel.frame = CGRect(x: 10, y: nameLabel.bottom, width: width-20, height: 44)
         ownerLabel.frame = CGRect(x: 10, y: descriptionLabel.bottom, width: width-20, height: 44)
-        playAllButton.frame = CGRect(x: width-75, y: height-75, width: 60, height: 60)
+        playAllButton.frame = CGRect(x: width-75, y: height-70, width: 60, height: 60)
     }
     
     override func prepareForReuse() {
