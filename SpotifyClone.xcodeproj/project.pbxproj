@@ -54,6 +54,8 @@
 		71CEA6942CC19CF400B2DD52 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CEA6722CC19CF400B2DD52 /* Constants.swift */; };
 		71CEA6952CC19CF400B2DD52 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CEA6732CC19CF400B2DD52 /* Extensions.swift */; };
 		71CEA6962CC19CF400B2DD52 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71CEA6742CC19CF400B2DD52 /* SceneDelegate.swift */; };
+		71DD45A42CD2B7DB00C0A119 /* SearchResultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DD45A32CD2B7D300C0A119 /* SearchResultResponse.swift */; };
+		71DD45A62CD2B90700C0A119 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DD45A52CD2B90200C0A119 /* SearchResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +109,8 @@
 		71CEA6742CC19CF400B2DD52 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		71CEA6772CC19CF400B2DD52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71CEA67A2CC19CF400B2DD52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71DD45A32CD2B7D300C0A119 /* SearchResultResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultResponse.swift; sourceTree = "<group>"; };
+		71DD45A52CD2B90200C0A119 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		B192410D94B513EADF9FF21E /* Pods-SpotifyClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyClone.debug.xcconfig"; path = "Target Support Files/Pods-SpotifyClone/Pods-SpotifyClone.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,6 +197,8 @@
 		71CEA66F2CC19CF400B2DD52 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				71DD45A52CD2B90200C0A119 /* SearchResult.swift */,
+				71DD45A32CD2B7D300C0A119 /* SearchResultResponse.swift */,
 				718330DD2CD2927D00B8DA2C /* AllCategoriesResponse.swift */,
 				714AEDEB2CC59E52007C2348 /* RecommendationsResponse.swift */,
 				71CEA6692CC19CF400B2DD52 /* Artist.swift */,
@@ -430,11 +436,13 @@
 				71CEA6902CC19CF400B2DD52 /* Playlist.swift in Sources */,
 				71CEA6912CC19CF400B2DD52 /* SettingsModels.swift in Sources */,
 				71CEA6922CC19CF400B2DD52 /* UserProfile.swift in Sources */,
+				71DD45A62CD2B90700C0A119 /* SearchResult.swift in Sources */,
 				715783632CD024E800335AA4 /* PlaylistHeaderViewViewModel.swift in Sources */,
 				719751002CCAB39C00809EBE /* AlbumDetailsResponse.swift in Sources */,
 				7193822A2CD157C800BBC14E /* AlbumTrackCollectionViewCell.swift in Sources */,
 				71CEA6932CC19CF400B2DD52 /* AppDelegate.swift in Sources */,
 				71CEA6942CC19CF400B2DD52 /* Constants.swift in Sources */,
+				71DD45A42CD2B7DB00C0A119 /* SearchResultResponse.swift in Sources */,
 				714AEDE72CC592DA007C2348 /* FeaturedPlaylistsResponse.swift in Sources */,
 				71CEA6952CC19CF400B2DD52 /* Extensions.swift in Sources */,
 				718330E22CD2988E00B8DA2C /* CategoryViewController.swift in Sources */,

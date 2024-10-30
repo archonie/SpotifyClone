@@ -54,7 +54,7 @@ class PlaylistHeaderCollectionReusableView: UICollectionReusableView {
         let image = UIImage(systemName: "play.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30, weight: .regular))
         button.setImage(image, for: .normal)
         button.tintColor = .white
-        button.layer.cornerRadius = 30
+        button.layer.cornerRadius = 27
         button.layer.masksToBounds = true
         return button
     }()
@@ -88,7 +88,7 @@ class PlaylistHeaderCollectionReusableView: UICollectionReusableView {
         nameLabel.frame = CGRect(x: 10, y: imageView.bottom, width: width-20, height: 44)
         descriptionLabel.frame = CGRect(x: 10, y: nameLabel.bottom, width: width-20, height: 44)
         ownerLabel.frame = CGRect(x: 10, y: descriptionLabel.bottom, width: width-20, height: 44)
-        playAllButton.frame = CGRect(x: width-75, y: height-70, width: 60, height: 60)
+        playAllButton.frame = CGRect(x: width-75, y: descriptionLabel.bottom+5, width: 54, height: 54)
     }
     
     override func prepareForReuse() {
