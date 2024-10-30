@@ -13,6 +13,12 @@ struct FeaturedPlaylistsResponse: Codable {
     
 }
 
+struct CategoryPlaylistsResponse: Codable {
+    let message: String
+    let playlists: PlaylistResponse
+    
+}
+
 struct PlaylistResponse: Codable{
     let items: [Playlist]
 }
