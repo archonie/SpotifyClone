@@ -272,12 +272,12 @@
 		71CEA6792CC19CF400B2DD52 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				716C20D82CC6ED2500A7BF7A /* Browse */,
 				71A3780D2CD47C570087090F /* Player */,
 				71DD45AA2CD3DED900C0A119 /* SearchResultCells */,
 				719382292CD157BD00BBC14E /* AlbumTrackCollectionViewCell.swift */,
-				716C20D82CC6ED2500A7BF7A /* Browse */,
-				71CEA6782CC19CF400B2DD52 /* LaunchScreen.storyboard */,
 				715783602CD0223C00335AA4 /* PlaylistHeaderCollectionReusableView.swift */,
+				71CEA6782CC19CF400B2DD52 /* LaunchScreen.storyboard */,
 				719382272CD150D300BBC14E /* TitleHeaderCollectionReusableView.swift */,
 				7193822D2CD17D1800BBC14E /* CategoryCollectionViewCell.swift */,
 			);

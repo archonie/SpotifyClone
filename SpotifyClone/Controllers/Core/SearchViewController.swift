@@ -119,7 +119,7 @@ class SearchViewController: UIViewController, UISearchResultsUpdating, UISearchB
             vc.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(vc, animated: true)
         case .track(let model):
-            PlaybackPresenter.startPlayback(from: self, track: model)
+            PlaybackPresenter.shared.startPlayback(from: self, track: model)
         }
     }
     
