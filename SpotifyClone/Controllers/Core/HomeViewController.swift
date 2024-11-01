@@ -25,7 +25,7 @@ enum BrowseSectionType {
 }
 
 class HomeViewController: UIViewController {
-
+    
     private var collectionView: UICollectionView  = UICollectionView(
         frame: .zero,
         collectionViewLayout: UICollectionViewCompositionalLayout(sectionProvider: { sectionIndex, _ -> NSCollectionLayoutSection in
@@ -157,13 +157,13 @@ class HomeViewController: UIViewController {
             
         }
     }
-
-    private func configureModels(newAlbums: [Album], playlists: [Playlist], recommendations: [AudioTrack]) {
     
+    private func configureModels(newAlbums: [Album], playlists: [Playlist], recommendations: [AudioTrack]) {
+        
         self.newAlbums = newAlbums
         self.playlists = playlists
         self.tracks = recommendations
-         //Configure models
+        //Configure models
         sections.append(.newReleases(viewModels: newAlbums.compactMap({
             return NewReleasesCellViewModel(
                 name: $0.name,
@@ -297,7 +297,7 @@ class HomeViewController: UIViewController {
             return section
         }
     }
-
+    
 }
 
 
@@ -375,7 +375,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             vc.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(vc, animated: true)
         case .recommendedTracks:
-            break
+            let track = tracks[indexPath.row]
+            PlaybackPresenter.startPlayback(from: self, track: track)
+            
         }
     }
 }

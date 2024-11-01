@@ -8,10 +8,12 @@
 import UIKit
 
 class AlbumViewController: UIViewController {
-
+    
     private let album: Album
-
+    
     private var viewModels = [AlbumCollectionViewCellViewModel]()
+    
+    private var tracks = [AudioTrack]()
     
     private var collectionView: UICollectionView  = UICollectionView(
         frame: .zero,
@@ -61,7 +63,7 @@ class AlbumViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError()
     }
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = album.name
@@ -80,6 +82,7 @@ class AlbumViewController: UIViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let model):
+                    self?.tracks = model.tracks.items
                     self?.viewModels = model.tracks.items.compactMap({
                         AlbumCollectionViewCellViewModel(
                             name: $0.name,
@@ -120,6 +123,7 @@ extension AlbumViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         //Play Song
+        PlaybackPresenter.startPlayback(from: self, track: tracks[indexPath.row])
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -150,7 +154,10 @@ extension AlbumViewController: UICollectionViewDelegate, UICollectionViewDataSou
 extension AlbumViewController: PlaylistHeaderCollectionReusableViewDelegate {
     func playlistHeaderCollectionReusableViewDidTapPlayAll(_ header: PlaylistHeaderCollectionReusableView) {
         //Start Playing
-        print("Playing all")
+        PlaybackPresenter.startPlayback(
+            from: self,
+            tracks: tracks
+        )
     }
-
+    
 }

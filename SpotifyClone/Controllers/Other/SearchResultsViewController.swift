@@ -97,7 +97,6 @@ extension SearchResultsViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let result = sections[indexPath.section].results[indexPath.row]
-        //let aCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         switch result {
         case .artist(let artist):
             guard let cell = tableView.dequeueReusableCell(
