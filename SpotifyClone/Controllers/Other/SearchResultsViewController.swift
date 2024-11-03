@@ -125,7 +125,7 @@ extension SearchResultsViewController: UITableViewDelegate, UITableViewDataSourc
             ) as? SearchResultSubtitleTableViewCell else {
                 return UITableViewCell()
             }
-            let viewModel = SearchResultSubtitleTableViewCellViewModel(title: model.name, subtitle: model.owner.display_name, imageURL: URL(string: model.images.first?.url ?? ""))
+            let viewModel = SearchResultSubtitleTableViewCellViewModel(title: model.name, subtitle: model.owner.display_name, imageURL: URL(string: model.images?.first?.url ?? ""))
             cell.configure(with: viewModel)
             return cell
         case .track(let model):
