@@ -90,11 +90,9 @@ class LibraryPlaylistsViewController: UIViewController {
             
             APICaller.shared.createPlaylist(with: text) { [weak self] success in
                 if success {
-                    DispatchQueue.main.async {
                         // Refresh list of playlists
                         self?.fetchData()
-                        self?.tableView.reloadData()
-                    }
+                    
                 } else {
                     print("Failed to create playlist")
                 }
