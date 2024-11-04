@@ -65,7 +65,6 @@ class LibraryPlaylistsViewController: UIViewController {
                 switch result {
                 case .success(let playlists):
                     self?.playlists = playlists
-                    print(playlists)
                     self?.updateUI()
                 case .failure(let error):
                     print(error.localizedDescription)
@@ -94,7 +93,9 @@ class LibraryPlaylistsViewController: UIViewController {
                         self?.fetchData()
                     
                 } else {
-                    print("Failed to create playlist")
+                    let errorAlert = UIAlertController(title: "Oops", message: "Failed to create playlist.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+                    self?.present(errorAlert, animated: true)
                 }
                 
             }

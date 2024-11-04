@@ -27,7 +27,6 @@ class LibraryViewController: UIViewController {
         view.addSubview(scrollView)
         view.addSubview(toggleView)
         toggleView.delegate = self
-        scrollView.backgroundColor = .yellow
         scrollView.contentSize = CGSize(width: view.width*2, height: scrollView.height)
         addChildren()
         updateBarButtons()

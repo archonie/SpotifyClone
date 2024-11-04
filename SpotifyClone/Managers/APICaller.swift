@@ -302,7 +302,6 @@ final class APICaller {
             with: URL(string: Constants.baseURL+"/search?limit=10&type=album,artist,playlist,track&q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")"),
             type: .GET
         ) { request in
-            print(request.url?.absoluteString ?? "URL is nil")
             let task = URLSession.shared.dataTask(with: request) { data, _, error in
                 guard let data = data, error == nil else {
                     completion(.failure(APIError.failedToGetData))
