@@ -44,7 +44,6 @@ class PlaylistHeaderCollectionReusableView: UICollectionReusableView {
     private let imageView: UIImageView = {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.image = UIImage(named: "photo")
         return imageView
     }()
     
@@ -103,6 +102,11 @@ class PlaylistHeaderCollectionReusableView: UICollectionReusableView {
         nameLabel.text = viewModel.name
         descriptionLabel.text = viewModel.description
         ownerLabel.text = viewModel.ownerName
-        imageView.sd_setImage(with: viewModel.artworkURL)
+        if viewModel.artworkURL == nil {
+            imageView.image = UIImage(systemName: "photo")
+        } else {
+            imageView.sd_setImage(with: viewModel.artworkURL, placeholderImage: UIImage(named: "photo"), completed: nil)
+        }
+        
     }
 }
