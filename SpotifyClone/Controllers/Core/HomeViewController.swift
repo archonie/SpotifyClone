@@ -407,6 +407,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         case .featuredPlaylists:
             let playlist = playlists[indexPath.row]
             let vc = PlaylistViewController(playlist: playlist)
+            vc.isOwner = false
             vc.title = playlist.name
             vc.navigationItem.largeTitleDisplayMode = .never
             navigationController?.pushViewController(vc, animated: true)
