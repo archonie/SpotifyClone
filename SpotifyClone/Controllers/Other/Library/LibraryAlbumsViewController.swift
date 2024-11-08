@@ -33,9 +33,14 @@ class LibraryAlbumsViewController: UIViewController {
         tableView.dataSource = self
         setUpNoAlbumsView()
         fetchData()
-        observer = NotificationCenter.default.addObserver(forName: .albumSavedNotification, object: nil, queue: .main, using: {[weak self] _ in
-            self?.fetchData()
-        })
+        observer = NotificationCenter.default.addObserver(
+            forName: .albumSavedNotification,
+            object: nil,
+            queue: .main,
+            using: {[weak self] _ in
+                self?.fetchData()
+            }
+        )
     }
     
     override func viewDidLayoutSubviews() {
@@ -108,6 +113,7 @@ extension LibraryAlbumsViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        HapticsManager.shared.vibrateForSelection()
         let album = albums[indexPath.row]
         let vc = AlbumViewController(album: album)
         vc.navigationItem.largeTitleDisplayMode = .never

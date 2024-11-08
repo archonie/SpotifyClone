@@ -59,6 +59,7 @@ final class PlaybackPresenter {
         viewController.present(UINavigationController(rootViewController: vc), animated: true) { [weak self] in
             self?.player?.play()
         }
+        
         self.playerVC = vc
     }
     
