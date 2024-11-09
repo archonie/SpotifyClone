@@ -186,4 +186,15 @@ final class AuthManager {
         }
         UserDefaults.standard.set(Date().addingTimeInterval(TimeInterval(result.expires_in)), forKey: "expiration")
     }
+    
+    public func signOut(completion: @escaping (Bool) -> Void) {
+        
+        UserDefaults.standard.set(nil, forKey: "access_token")
+       
+        UserDefaults.standard.set(nil, forKey: "refresh_token")
+      
+        UserDefaults.standard.set(nil, forKey: "expiration")
+        
+        completion(true)
+    }
 }
